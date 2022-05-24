@@ -42,6 +42,8 @@ async function run() {
       res.send(fruit);
     });
 
+    //get data by email
+
     app.get("/email/:emaildata", async (req, res) => {
       const id = req.params.emaildata;
       const query = { email: id };
