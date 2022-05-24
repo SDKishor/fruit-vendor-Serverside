@@ -42,6 +42,24 @@ async function run() {
       res.send(fruit);
     });
 
+    app.get("/email/:emaildata", async (req, res) => {
+      const id = req.params.emaildata;
+      const query = { email: id };
+      console.log(query);
+      const cursor = fruitscollection.find(query);
+      const rasult = await cursor.toArray();
+
+      res.send(rasult);
+    });
+
+    //post method
+
+    app.post("/additems", async (req, res) => {
+      const doc = req.body;
+      const result = await fruitscollection.insertOne(doc);
+      res.send(result);
+    });
+
     //put method
     app.put("/inventory/:id", async (req, res) => {
       const id = req.params.id;
