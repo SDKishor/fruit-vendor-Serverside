@@ -34,12 +34,42 @@ async function run() {
       res.send(fruits);
     });
 
-    app.get("/service/:id", async (req, res) => {
+    app.get("/inventory/:id", async (req, res) => {
       const id = req.params.id;
       const query = { _id: ObjectId(id) };
       const fruit = await fruitscollection.findOne(query);
 
       res.send(fruit);
+    });
+
+    //put method
+    app.put("/inventory/:id", async (req, res) => {
+      const id = req.params.id;
+      const updatedInfo = req.body;
+      const filter = { _id: ObjectId(id) };
+      const option = { upsert: true };
+      const updatedDoc = {
+        $set: {
+          quantity: updatedInfo.quantity,
+        },
+      };
+
+      const result = await fruitscollection.updateOne(
+        filter,
+        updatedDoc,
+        option
+      );
+
+      res.send(result);
+    });
+
+    //DELETE
+    app.delete("/inventory/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: ObjectId(id) };
+      const result = await fruitscollection.deleteOne(query);
+
+      app.send(result);
     });
   } finally {
   }
