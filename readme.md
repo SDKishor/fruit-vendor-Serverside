@@ -1,3 +1,9 @@
 # fruits Vendor serversite
 
-clintSite code: (click here)[https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-SDKishor]
+A fruit selling website Server
+
+Clint site Code Link: [CODE LINK](https://github.com/SDKishor/fruit-vendor-clientside)
+
+Server site Code Link: [CODE LINK](https://github.com/SDKishor/fruit-vendor-Serverside)
+
+Live Website Link: [Website](https://fruit-s-vendor.web.app)
